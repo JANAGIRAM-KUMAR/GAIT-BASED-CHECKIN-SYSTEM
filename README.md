@@ -86,7 +86,7 @@ cd GAIT-BASED-CHECKIN-SYSTEM
 **Step 2:** Install required Packages
 ```bash
 pip install --upgrade pip
-pip install 
+pip install streamlit pandas numpy joblib matplotlib seaborn scikit-learn
 ```
 **Step 3:** Train the model (Random Forest Classifier)
 ```bash
