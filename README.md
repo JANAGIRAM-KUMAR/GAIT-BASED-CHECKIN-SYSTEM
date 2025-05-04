@@ -31,7 +31,7 @@ This project is a prototype for a **contactless employee check-in system** using
 
 ### Project Structure:
 ```
-GAIT-BASED-CHECKIN-SYSTEM/
+GAIT-BASED-CHECKIN-SYS/
 |
 |--- app/
      |--- main.py
