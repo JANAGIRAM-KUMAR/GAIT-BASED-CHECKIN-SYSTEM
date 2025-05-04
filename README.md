@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 # 🏤 Stark Industries: Gait-Based Security System
 
 ### Problem Statement:
@@ -141,4 +138,3 @@ A demo video of this application is attached in the demo_assets folder.
 
 - **Improved Prediction Accuracy**  
   Enhance the existing algorithm to better adapt to individual gait patterns and reduce false predictions.
->>>>>>> eff2912 (Initial commit: Gait Based Check-in System)
