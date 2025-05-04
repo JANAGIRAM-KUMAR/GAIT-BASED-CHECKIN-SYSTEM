@@ -4,12 +4,9 @@ import sys
 import os
 import base64
 
-# Add path to access the predict function
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src.predict import predict_employee
 
-
-# -------- Function to Set Transparent UI and Custom Font --------
 def set_custom_style_with_background(image_path):
     with open(image_path, "rb") as img_file:
         encoded = base64.b64encode(img_file.read()).decode()
@@ -61,10 +58,8 @@ def set_custom_style_with_background(image_path):
     """
     st.markdown(css, unsafe_allow_html=True)
 
-# -------- Apply Background and Style --------
 set_custom_style_with_background("img/background.jpg")  # ← Use your local image path
 
-# -------- App Title & Sidebar --------
 st.markdown("# Stark Industries 🏤: Gait-Based Security System")
 
 st.sidebar.header("📌 How to Use")
@@ -78,8 +73,7 @@ st.sidebar.markdown("""
 3. The system will determine if you are an employee.
 """)
 
-# -------- File Upload and Prediction --------
-uploaded_file = st.file_uploader("📤 Upload Accelerometer CSV File", type="csv")
+uploaded_file = st.file_uploader("📂 Upload Accelerometer CSV File", type="csv")
 model_path = "models/gait_classifier.pkl"
 
 if uploaded_file is not None:
