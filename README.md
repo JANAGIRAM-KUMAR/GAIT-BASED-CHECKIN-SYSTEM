@@ -68,7 +68,7 @@ GAIT-BASED-CHECKIN-SYS/
     .
     .
     .
-    |---Test_Sample11.csv    
+    |---Test_Sample10.csv    
 |--- .gitignore
 |--- README.md
 |--- train.py
