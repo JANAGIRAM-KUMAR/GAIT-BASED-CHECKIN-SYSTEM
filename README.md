@@ -51,7 +51,7 @@ GAIT-BASED-CHECKIN-SYSTEM/
           |--- empdata30B.csv
           |--- empdata30C.csv
 |--- demo_assets/
-     |--- demo.mov
+     |--- demo.mp4
 |--- img/
      |--- background.jpg
 |--- models/
