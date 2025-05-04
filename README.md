@@ -79,17 +79,18 @@ GAIT-BASED-CHECKIN-SYS/
 
 **Step 1:** Clone the repository
 ```bash
-  git clone https://github.com/JANAGIRAM-KUMAR/GAIT-BASED-CHECKIN-SYSTEM.git
-  cd GAIT-BASED-CHECKIN-SYSTEM
+git clone https://github.com/JANAGIRAM-KUMAR/GAIT-BASED-CHECKIN-SYSTEM.git
+cd GAIT-BASED-CHECKIN-SYSTEM
 ```
 
 **Step 2:** Install required Packages
 ```bash
-  pip install streamlit scikit-learn pandas numpy matplotlib seaborn joblib scipy
+pip install streamlit pandas numpy matplotlib seaborn joblib scipy
+pip install scikit-learn==1.3.0
 ```
 **Step 3:** Train the model (Random Forest Classifier)
 ```bash
-  python train.py
+python train.py
 ```
 **Step 4:**  Model Training and Evaluation
 
@@ -103,13 +104,13 @@ GAIT-BASED-CHECKIN-SYS/
 
 **Step 5:** Run the Streamlit app
 ```bash
-  streamlit run app/main.py
+streamlit run app/main.py
 ```
 **Step 6:** Live Application
 
 Now you can now view your Streamlit app in your browser.
 ```
-  Local URL: http://localhost:8501
+Local URL: http://localhost:8501
 ```
 
 ### Streamlit App Usage for Gait-Based Access Control:
