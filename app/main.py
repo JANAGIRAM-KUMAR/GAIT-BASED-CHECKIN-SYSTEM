@@ -96,7 +96,7 @@ if uploaded_file is not None:
                     st.error("❌ Access Denied. Not recognized.")
             else:
                 missing = set(required_columns) - set(df.columns)
-                st.error(f"❌ Missing required columns: {', '.join(missing)}")
+                st.error(f"❌ Access Denied. Missing required columns: {', '.join(missing)}")
     except Exception as e:
         st.error(f"🚨 Error: `{str(e)}`")
 else:

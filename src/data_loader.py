@@ -11,7 +11,7 @@ def butter_lowpass_filter(data, cutoff=5, fs=50, order=4):
     return filtfilt(b, a, data, axis=0)
 
 
-def load_all_employee_data(data_dir, sampling_rate=50, window_seconds=3, overlap=0.9):
+def load_all_employee_data(data_dir, sampling_rate=50, window_seconds=2, overlap=0.9):
     all_features = []
     labels = []
     window_size = int(window_seconds * sampling_rate)
