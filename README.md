@@ -86,8 +86,7 @@ cd GAIT-BASED-CHECKIN-SYSTEM
 **Step 2:** Install required Packages
 ```bash
 pip install --upgrade pip
-pip install -r requirements.txt
-pip install scikit-learn==1.3.0
+pip install 
 ```
 **Step 3:** Train the model (Random Forest Classifier)
 ```bash
