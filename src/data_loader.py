@@ -10,6 +10,26 @@ def butter_lowpass_filter(data, cutoff=5, fs=50, order=4):
     b, a = butter(order, normal_cutoff, btype='low', analog=False)
     return filtfilt(b, a, data, axis=0)
 
+def butter_highpass_filter(data, cutoff=0.3, fs=50, order=4):
+    nyquist = 0.5 * fs
+    normal_cutoff = cutoff / nyquist
+    b, a = butter(order, normal_cutoff, btype='high', analog=False)
+    return filtfilt(b, a, data, axis=0)
+
+def preprocess_accel_data(data, fs=50):
+
+    data_no_gravity = butter_highpass_filter(data[:, :3], cutoff=0.3, fs=fs)
+
+    data_filtered = butter_lowpass_filter(data_no_gravity, cutoff=5, fs=fs)
+
+    magnitude = np.linalg.norm(data_filtered, axis=1).reshape(-1, 1)
+
+    return np.hstack((data_filtered, magnitude))
+
+def remove_outliers(data, threshold=3.0):
+    z_scores = (data - np.mean(data, axis=0)) / np.std(data, axis=0)
+    mask = np.all(np.abs(z_scores) < threshold, axis=1)
+    return data[mask]
 
 def load_all_employee_data(data_dir, sampling_rate=50, window_seconds=2, overlap=0.9):
     all_features = []
@@ -24,8 +44,11 @@ def load_all_employee_data(data_dir, sampling_rate=50, window_seconds=2, overlap
                 filepath = os.path.join(root, file)
                 df = pd.read_csv(filepath)
 
-                accel_data = df[['ax (m/s^2)', 'ay (m/s^2)', 'az (m/s^2)', 'aT (m/s^2)']].values
-                segments = segment_and_extract(accel_data, window_size, step_size)
+                raw_accel_data = df[['ax (m/s^2)', 'ay (m/s^2)', 'az (m/s^2)']].values
+
+                preprocessed_data = preprocess_accel_data(raw_accel_data, fs=sampling_rate)
+
+                segments = segment_and_extract(preprocessed_data, window_size, step_size)
                 all_features.extend(segments)
                 labels.extend([employee_label] * len(segments))
 

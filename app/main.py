@@ -91,14 +91,14 @@ if uploaded_file is not None:
                 st.markdown(f"**📈 Confidence:** `{confidence:.2%}`")
 
                 if employee_id:
-                    st.success("✅ Access Granted. Employee Recognized.")
+                    st.success("✅ Access Granted: Employee identity successfully recognized.")
                 else:
-                    st.error("❌ Access Denied. Not recognized.")
+                    st.error("❌ Access Denied: Gait pattern not recognized. Please try again or contact admin.")
             else:
                 missing = set(required_columns) - set(df.columns)
-                st.error(f"❌ Access Denied. Missing required columns: {', '.join(missing)}")
+                st.error("❌ Access Denied: Uploaded file contains invalid or unsupported columns.")
     except Exception as e:
-        st.error(f"🚨 Error: `{str(e)}`")
+        st.error(f"🚨 System Error: {str(e)}. Please check your data and try again.")
 else:
     st.markdown("#### Upload your CSV file to check employee credentials.")
 
