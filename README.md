@@ -89,7 +89,7 @@ cd GAIT-BASED-CHECKIN-SYSTEM
 pip install --upgrade pip
 pip install streamlit pandas numpy joblib matplotlib seaborn scikit-learn
 ```
-**Step 3:** Train the model (Random Forest Classifier)
+**Step 3:** Train the model (XGBClassifier)
 ```bash
 python train.py
 ```
