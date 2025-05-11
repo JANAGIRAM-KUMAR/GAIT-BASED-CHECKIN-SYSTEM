@@ -50,8 +50,8 @@ GAIT-BASED-CHECKIN-SYSTEM/
           |--- empdata30A.csv
           |--- empdata30B.csv
           |--- empdata30C.csv
-|--- demo_assets/
-     |--- demo.mp4
+|--- data_visualization/
+     |--- emp_data.csv
 |--- img/
      |--- background.jpg
 |--- models/
@@ -62,13 +62,13 @@ GAIT-BASED-CHECKIN-SYSTEM/
      |--- feauture_extraction.py
      |--- predict.py
      |--- train_model.py
-|--- test_data/
-    |---Test_Sample1.csv
-    |---Test_Sample2.csv
+|--- testing_data/
+    |---testdata1.csv
+    |---testdata2.csv
     .
     .
     .
-    |---Test_Sample10.csv    
+    |---testdata20.csv    
 |--- .gitignore
 |--- README.md
 |--- train.py
@@ -124,10 +124,6 @@ Local URL: http://localhost:8501
 - Note:
   - Currently, the app uses a **file upload port** to simulate real-time data capture from a mobile device.
   - In future iterations, this can be replaced with live streaming or direct mobile app integration.
-
-### Demo:
-
-A demo video of this application is attached in the demo_assets folder.
 
 ### Future Improvements:
 
