@@ -95,13 +95,74 @@ python train.py
 ```
 **Step 4:**  Model Training and Evaluation
 
-- After running the training script, the terminal will display:
-  - **Precision**, **Recall**, **F1-Score**, and **Support** for each class
-  - **Overall Accuracy**
-  - **Macro Avg** and **Weighted Avg** performance metrics
-  - A **Confusion Matrix** visualizing the model’s predictions
-- Once the output is displayed:
-  - Open a **new terminal** in your code editor (e.g., **VS Code** or **PyCharm**) to continue with the next steps
+After preparing and filtering the accelerometer data using a high-pass filter, we trained a model using the XGBoost classifier.
+
+Model Used: XGBClassifier
+
+Windowing: Each CSV file was segmented into overlapping windows.
+Features: Extracted from the filtered accelerometer signals (gravity removed).
+Training Data: Aggregated from all .csv files under the data/ directory.
+Once training is complete, the script outputs:
+
+Classification Report:
+```
+Number of samples: 131360
+Number of features per sample: 19
+
+Accuracy: 0.8847
+              precision    recall  f1-score   support
+
+           0       0.99      0.89      0.94       183
+           1       0.84      0.80      0.82      5141
+           2       0.98      0.98      0.98       512
+           3       0.88      0.88      0.88      3058
+           4       0.95      0.94      0.95       701
+           5       0.98      0.98      0.98       241
+           6       0.97      0.96      0.96       175
+           7       0.93      0.96      0.95       370
+           8       0.95      0.91      0.93       176
+           9       0.86      0.95      0.90      3736
+          10       0.95      0.97      0.96       318
+          11       0.84      0.84      0.84      6184
+          12       0.93      0.92      0.93       558
+          13       0.96      0.94      0.95       230
+          14       1.00      0.95      0.97       273
+          15       0.95      0.97      0.96       459
+          16       0.96      0.90      0.93       122
+          17       0.96      0.94      0.95       306
+          18       0.97      0.96      0.96       381
+          19       0.98      0.94      0.96       616
+          20       0.96      0.98      0.97       163
+          21       0.96      0.93      0.95       412
+          22       0.99      0.94      0.97       265
+          23       0.98      0.84      0.91       437
+          24       0.96      0.92      0.94       322
+          25       0.98      0.98      0.98       174
+          26       0.99      0.91      0.95       150
+          27       0.97      0.95      0.96       320
+          28       0.97      0.99      0.98       184
+          29       0.98      0.92      0.95       105
+
+    accuracy                           0.88     26272
+   macro avg       0.95      0.93      0.94     26272
+weighted avg       0.89      0.88      0.88     26272
+
+Model saved to models/gait_classifier.pkl
+2025-05-11 11:55:01.033 python[26831:731172] +[IMKClient subclass]: chose IMKClient_Modern
+2025-05-11 11:55:01.033 python[26831:731172] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+Segments Extracted: 120
+Features per Segment: 19
+```
+**Precision** – Model’s ability to avoid false positives
+**Recall** – Model’s ability to capture all actual positives
+**F1-Score** – Harmonic mean of precision and recall
+**Support** – Number of true samples per class
+
+**Sensor Processing Visualization:**
+
+This figure shows raw, filtered, and **gravity** components for each axis (X, Y, Z), clearly illustrating the effect of high-pass filtering (cutoff = 0.3 Hz):
+
+
 
 **Step 5:** Run the Streamlit app
 ```bash
