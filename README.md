@@ -62,6 +62,7 @@ GAIT-BASED-CHECKIN-SYSTEM/
      |--- feauture_extraction.py
      |--- predict.py
      |--- train_model.py
+     |--- visualize_processing_pipeline.py
 |--- testing_data/
     |---testdata1.csv
     |---testdata2.csv
