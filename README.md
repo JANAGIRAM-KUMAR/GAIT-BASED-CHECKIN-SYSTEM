@@ -17,7 +17,7 @@ This project is a prototype for a **contactless employee check-in system** using
 ### Technologies Used:
 
 - **Python** for backend logic and machine learning
-- **Random Forest Classifier** (via `scikit-learn`) for gait recognition
+- **XGB Classifier** (via `scikit-learn`) for gait recognition
 - **Streamlit** for the web frontend interface
 - **Joblib** to save and load trained models
 - **Pandas, NumPy, SciPy** for data preprocessing
